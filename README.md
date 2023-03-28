@@ -1,7 +1,8 @@
 # Projeto Dundie Rewards
+
 (projeto teste do curso Python Base da LinuxTips)
 
-[![CI](https://github.com/rochacbruno/dundie-rewards/actions/workflows/main.yml/badge.svg)](https://github.com/rochacbruno/dundie-rewards/actions/workflows/main.yml)
+[![CI](https://github.com/khalegjr/dundie-rewards/actions/workflows/main.yml/badge.svg)](https://github.com/khalegjr/dundie-rewards/actions/workflows/main.yml)
 
 Nós fomos contratados pela Dunder Mifflin, grande fabricante de papéis para desenvolver um sistema
 de recompensas para seus colaboradores.
@@ -18,7 +19,6 @@ e que no futuro terá também as interfaces UI, web e API.
 
 Os dados dos funcionários atuais serão fornecidos em um arquivo que pode ser no formato .csv ou .json
 e este mesmo arquivo poderá ser usado para versões futuras. `Nome, Depto, Cargo, Email`
-
 
 ## Installation
 
