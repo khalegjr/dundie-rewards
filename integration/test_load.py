@@ -5,7 +5,7 @@ import pytest
 
 @pytest.mark.integration
 @pytest.mark.medium
-def test_load():
+def test_load_positive_call_load_command():
     """test command load"""
     out = (
         check_output(["dundie", "load", "tests/assets/people.csv"])
