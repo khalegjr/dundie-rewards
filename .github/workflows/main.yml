@@ -25,8 +25,12 @@ jobs:
           python-version: ${{matrix.python-version}}
       - name: Install Project
         run: pip install '.[test]'
+      - name: Check for importing style
+        run: isort --profile=black --check --diff dundie tests integration
       - name: Look for style errors
         run: pflake8
+      - name: Look for auto format errors
+        run: black --check --diff dundie tests integration
 
   tests:
     needs: lint

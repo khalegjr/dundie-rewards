@@ -7,9 +7,11 @@ import pytest
 @pytest.mark.medium
 def test_load():
     """test command load"""
-    out = check_output(
-        ["dundie", "load", "tests/assets/people.csv"]
-    ).decode('utf-8').split("\n")
+    out = (
+        check_output(["dundie", "load", "tests/assets/people.csv"])
+        .decode("utf-8")
+        .split("\n")
+    )
     # breakpoint()
     assert len(out) == 2
 
@@ -22,5 +24,5 @@ def test_load_negative_call_load_command_with_wrong_params(wrong_command):
     with pytest.raises(CalledProcessError) as error:
         check_output(
             ["dundie", wrong_command, "tests/assets/people.csv"]
-        ).decode('utf-8').split("\n")
+        ).decode("utf-8").split("\n")
         assert "status 2" in str(error)
