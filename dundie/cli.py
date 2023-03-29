@@ -1,10 +1,9 @@
 import argparse
 
-from dundie.core import load
+from dundie.core import load  # noqa
 
 
 def main():
-
     parser = argparse.ArgumentParser(
         description="Dunder Mifflin Rewards CLI",
         epilog="Enjoy and use with cautious.",

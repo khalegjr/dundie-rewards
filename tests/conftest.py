@@ -12,7 +12,7 @@ low: Low Priority
 def pytest_configure(config):
     # modo de execução interativo
     for line in MARKER.split("\n"):
-        config.addinivalue_line('markers', line)
+        config.addinivalue_line("markers", line)
 
 
 @pytest.fixture(autouse=True)

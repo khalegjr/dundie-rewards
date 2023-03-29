@@ -1,4 +1,4 @@
-.PHONY: install virtualenv ipython clean test watch
+.PHONY: install virtualenv ipython lint fmt test watch clean
 
 install:
 	@echo "Installing for dev environment"
@@ -9,6 +9,13 @@ virtualenv:
 
 ipython:
 	@.venv/bin/ipython
+
+lint:
+	@.venv/bin/pflake8
+
+fmt:
+	@.venv/bin/isort dundie tests integration
+	@.venv/bin/black dundie tests integration
 
 test:
 	@.venv/bin/pytest -s
