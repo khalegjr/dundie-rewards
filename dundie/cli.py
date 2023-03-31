@@ -1,29 +1,26 @@
-import argparse
+import click
+import pkg_resources
 
-from dundie.core import load  # noqa
+from dundie import core
 
 
+@click.group()
+@click.version_option(pkg_resources.get_distribution("dundie").version)
 def main():
-    parser = argparse.ArgumentParser(
-        description="Dunder Mifflin Rewards CLI",
-        epilog="Enjoy and use with cautious.",
-    )
-    parser.add_argument(
-        "subcommand",
-        type=str,
-        help="The subcommand to run",
-        choices=("load", "show", "send"),
-        default="help",
-    )
-    parser.add_argument(
-        "filepath",
-        type=str,
-        help="File path to load",
-    )
+    """Dunder Mifflin Rewards System.
 
-    args = parser.parse_args()
+    This cli application controls DM rewards.
+    """
 
-    try:
-        print(*globals()[args.subcommand](args.filepath))
-    except KeyError:
-        print("Subcommand is invalid.")
+
+@main.command()
+@click.argument("filepath", type=click.Path(exists=True))
+def load(filepath):
+    """Loads the file to the database."""
+    result = core.load(filepath)
+    header = ["name", "dept", "role", "e-mail"]
+
+    for person in result:
+        print("-" * 50)
+        for key, value in zip(header, person.split(",")):
+            print(f"{key.strip()} -> {value.strip()}")
